@@ -30,8 +30,6 @@
 					
 						<g:sortableColumn property="notes" title="${message(code: 'timezone.notes.label', default: 'Notes')}" />
 					
-						<g:sortableColumn property="recStatus" title="${message(code: 'timezone.recStatus.label', default: 'Rec Status')}" />
-					
 					</tr>
 				</thead>
 				<tbody>
@@ -43,8 +41,6 @@
 						<td>${fieldValue(bean: timezoneInstance, field: "offset")}</td>
 					
 						<td>${fieldValue(bean: timezoneInstance, field: "notes")}</td>
-					
-						<td>${fieldValue(bean: timezoneInstance, field: "recStatus")}</td>
 					
 					</tr>
 				</g:each>

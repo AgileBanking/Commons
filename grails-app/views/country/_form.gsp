@@ -2,28 +2,31 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'name', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'name', 'error')} required">
 	<label for="name">
 		<g:message code="country.name.label" default="Name" />
-		
+		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="name" value="${countryInstance?.name}"/>
+	<g:textField name="name" required="" value="${countryInstance?.name}"/>
+
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'nameInt', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'nameInt', 'error')} required">
 	<label for="nameInt">
 		<g:message code="country.nameInt.label" default="Name Int" />
-		
+		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="nameInt" value="${countryInstance?.nameInt}"/>
+	<g:textField name="nameInt" required="" value="${countryInstance?.nameInt}"/>
+
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'iso2', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'iso2', 'error')} required">
 	<label for="iso2">
 		<g:message code="country.iso2.label" default="Iso2" />
-		
+		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="iso2" maxlength="2" value="${countryInstance?.iso2}"/>
+	<g:textField name="iso2" maxlength="2" required="" value="${countryInstance?.iso2}"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'numCode', 'error')} required">
@@ -32,6 +35,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field name="numCode" type="number" min="1" max="999" value="${countryInstance.numCode}" required=""/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'internetCode', 'error')} ">
@@ -40,6 +44,7 @@
 		
 	</label>
 	<g:textField name="internetCode" value="${countryInstance?.internetCode}"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'capital', 'error')} ">
@@ -48,6 +53,7 @@
 		
 	</label>
 	<g:textField name="capital" value="${countryInstance?.capital}"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'timeZones', 'error')} ">
@@ -56,6 +62,7 @@
 		
 	</label>
 	<g:select name="timeZones" from="${entities.Timezone.list()}" multiple="multiple" optionKey="id" size="5" value="${countryInstance?.timeZones*.id}" class="many-to-many"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'dateFormat', 'error')} ">
@@ -64,6 +71,7 @@
 		
 	</label>
 	<g:textField name="dateFormat" value="${countryInstance?.dateFormat}"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'workingDays', 'error')} ">
@@ -72,6 +80,7 @@
 		
 	</label>
 	<g:textField name="workingDays" maxlength="7" value="${countryInstance?.workingDays}"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'phoneCode', 'error')} ">
@@ -80,6 +89,7 @@
 		
 	</label>
 	<g:textField name="phoneCode" value="${countryInstance?.phoneCode}"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'currency', 'error')} ">
@@ -88,6 +98,7 @@
 		
 	</label>
 	<g:select id="currency" name="currency.id" from="${entities.Currency.list()}" optionKey="id" value="${countryInstance?.currency?.id}" class="many-to-one" noSelection="['null': '']"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'languages', 'error')} ">
@@ -96,6 +107,7 @@
 		
 	</label>
 	<g:select name="languages" from="${entities.Language.list()}" multiple="multiple" optionKey="id" size="5" value="${countryInstance?.languages*.id}" class="many-to-many"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'holidays', 'error')} ">
@@ -113,6 +125,7 @@
 </li>
 </ul>
 
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'iban', 'error')} ">
@@ -121,6 +134,7 @@
 		
 	</label>
 	<g:select id="iban" name="iban.id" from="${entities.Iban.list()}" optionKey="id" value="${countryInstance?.iban?.id}" class="many-to-one" noSelection="['null': '']"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: countryInstance, field: 'notes', 'error')} ">
@@ -129,5 +143,6 @@
 		
 	</label>
 	<g:textArea name="notes" cols="40" rows="5" maxlength="2048" value="${countryInstance?.notes}"/>
+
 </div>
 

@@ -8,6 +8,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="iso3" maxlength="3" required="" value="${currencyInstance?.iso3}"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: currencyInstance, field: 'name', 'error')} required">
@@ -16,6 +17,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="name" required="" value="${currencyInstance?.name}"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: currencyInstance, field: 'nameInt', 'error')} required">
@@ -24,6 +26,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="nameInt" required="" value="${currencyInstance?.nameInt}"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: currencyInstance, field: 'area', 'error')} required">
@@ -32,6 +35,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select name="area" from="${currencyInstance.constraints.area.inList}" required="" value="${currencyInstance?.area}" valueMessagePrefix="currency.area"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: currencyInstance, field: 'notes', 'error')} ">
@@ -40,5 +44,6 @@
 		
 	</label>
 	<g:textArea name="notes" cols="40" rows="5" maxlength="2000" value="${currencyInstance?.notes}"/>
+
 </div>
 

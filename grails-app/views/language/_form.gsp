@@ -8,6 +8,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="iso2" required="" value="${languageInstance?.iso2}"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: languageInstance, field: 'name', 'error')} required">
@@ -16,6 +17,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="name" required="" value="${languageInstance?.name}"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: languageInstance, field: 'nameInt', 'error')} required">
@@ -24,6 +26,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="nameInt" required="" value="${languageInstance?.nameInt}"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: languageInstance, field: 'notes', 'error')} ">
@@ -32,5 +35,6 @@
 		
 	</label>
 	<g:textArea name="notes" cols="40" rows="5" maxlength="2000" value="${languageInstance?.notes}"/>
+
 </div>
 

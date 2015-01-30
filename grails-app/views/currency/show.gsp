@@ -86,15 +86,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${currencyInstance?.recStatus}">
-				<li class="fieldcontain">
-					<span id="recStatus-label" class="property-label"><g:message code="currency.recStatus.label" default="Rec Status" /></span>
-					
-						<span class="property-value" aria-labelledby="recStatus-label"><g:fieldValue bean="${currencyInstance}" field="recStatus"/></span>
-					
-				</li>
-				</g:if>
-			
 			</ol>
 			<g:form url="[resource:currencyInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

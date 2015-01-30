@@ -77,15 +77,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${languageInstance?.recStatus}">
-				<li class="fieldcontain">
-					<span id="recStatus-label" class="property-label"><g:message code="language.recStatus.label" default="Rec Status" /></span>
-					
-						<span class="property-value" aria-labelledby="recStatus-label"><g:fieldValue bean="${languageInstance}" field="recStatus"/></span>
-					
-				</li>
-				</g:if>
-			
 			</ol>
 			<g:form url="[resource:languageInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

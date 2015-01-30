@@ -61,7 +61,7 @@ class CountryController extends BaseController{
         countryInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'countryInstance.label', default: 'Country'), countryInstance.iso2])
                 redirect countryInstance
             }
@@ -88,7 +88,7 @@ class CountryController extends BaseController{
         countryInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Country.label', default: 'Country'), countryInstance.iso2])
                 redirect countryInstance
             }
@@ -107,7 +107,7 @@ class CountryController extends BaseController{
         countryInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Country.label', default: 'Country'), countryInstance.iso2])
                 redirect action:"index", method:"GET"
             }
@@ -126,7 +126,7 @@ class CountryController extends BaseController{
         countryInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.undeleted.message', args: [message(code: 'Country.label', default: 'Country'), countryInstance.id])
                 redirect action:"index", method:"GET"
             }
@@ -136,7 +136,7 @@ class CountryController extends BaseController{
 
     protected void notFound() {
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'countryInstance.label', default: 'Country'), params.iso2])
                 redirect action: "index", method: "GET"
             }

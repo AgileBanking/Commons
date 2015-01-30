@@ -51,7 +51,7 @@ class TheBankController {
         theBankInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'theBankInstance.label', default: 'TheBank'), theBankInstance.id])
                 redirect theBankInstance
             }
@@ -78,7 +78,7 @@ class TheBankController {
         theBankInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'TheBank.label', default: 'TheBank'), theBankInstance.id])
                 redirect theBankInstance
             }
@@ -97,7 +97,7 @@ class TheBankController {
 //        theBankInstance.delete flush:true
 
         request.withFormat {
-//            form {
+//            form multipartForm {
 //                flash.message = message(code: 'default.deleted.message', args: [message(code: 'TheBank.label', default: 'TheBank'), theBankInstance.id])
 //                redirect action:"index", method:"GET"
 //            }
@@ -114,7 +114,7 @@ class TheBankController {
 
     protected void notFound() {
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'theBankInstance.label', default: 'TheBank'), params.id])
                 redirect action: "index", method: "GET"
             }

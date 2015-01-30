@@ -59,7 +59,7 @@ class OrgUnitTypeController  extends BaseController {
         orgUnitTypeInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'orgUnitTypeInstance.label', default: 'OrgUnitType'), orgUnitTypeInstance.id])
                 redirect orgUnitTypeInstance
             }
@@ -86,7 +86,7 @@ class OrgUnitTypeController  extends BaseController {
         orgUnitTypeInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'OrgUnitType.label', default: 'OrgUnitType'), orgUnitTypeInstance.id])
                 redirect orgUnitTypeInstance
             }
@@ -106,7 +106,7 @@ class OrgUnitTypeController  extends BaseController {
         orgUnitTypeInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'OrgUnitType.label', default: 'OrgUnitType'), orgUnitTypeInstance.id])
                 redirect action:"index", method:"GET"
             }
@@ -125,7 +125,7 @@ class OrgUnitTypeController  extends BaseController {
         orgUnitTypeInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.undeleted.message', args: [message(code: 'OrgUnitType.label', default: 'OrgUnitType'), orgUnitTypeInstance.id])
                 redirect action:"index", method:"GET"
             }
@@ -135,7 +135,7 @@ class OrgUnitTypeController  extends BaseController {
 
     protected void notFound() {
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'orgUnitTypeInstance.label', default: 'OrgUnitType'), params.id])
                 redirect action: "index", method: "GET"
             }

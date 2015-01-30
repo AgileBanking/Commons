@@ -59,7 +59,7 @@ class ChannelController extends BaseController {
         channelInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'channelInstance.label', default: 'Channel'), channelInstance.id])
                 redirect channelInstance
             }
@@ -86,7 +86,7 @@ class ChannelController extends BaseController {
         channelInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Channel.label', default: 'Channel'), channelInstance.id])
                 redirect channelInstance
             }
@@ -106,7 +106,7 @@ class ChannelController extends BaseController {
         channelInstance.save flush:true
     
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Channel.label', default: 'Channel'), channelInstance.id])
                 redirect action:"index", method:"GET"
             }
@@ -127,7 +127,7 @@ class ChannelController extends BaseController {
         channelInstance.save flush:true 
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.undeleted.message', args: [message(code: 'Channel.label', default: 'Channel'), channelInstance.id])
                 redirect action:"index", method:"GET"
             }
@@ -147,7 +147,7 @@ class ChannelController extends BaseController {
         }
     }
     // READ ONLY Services. They return either XML or JSON (Default)
-    // the format is declared at the end of URI, e.g. /channel/getByCode.xml?code=bn
+    // the form multipartFormat is declared at the end of URI, e.g. /channel/getByCode.xml?code=bn
     def getByCode(String code) {
         // example: <server:port>/Commons/channel/getByCode?code=brn
         //          <server:port>/Commons/channel/getByCode/brn

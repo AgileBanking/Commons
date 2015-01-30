@@ -59,7 +59,7 @@ class LanguageController  extends BaseController {
         languageInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'languageInstance.label', default: 'Language'), languageInstance.id])
                 redirect languageInstance
             }
@@ -86,7 +86,7 @@ class LanguageController  extends BaseController {
         languageInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Language.label', default: 'Language'), languageInstance.id])
                 redirect languageInstance
             }
@@ -105,7 +105,7 @@ class LanguageController  extends BaseController {
         languageInstance.delete flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Language.label', default: 'Language'), languageInstance.id])
                 redirect action:"index", method:"GET"
             }
@@ -124,7 +124,7 @@ class LanguageController  extends BaseController {
         languageInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.undeleted.message', args: [message(code: 'Language.label', default: 'Language'), languageInstance.id])
                 redirect action:"index", method:"GET"
             }
@@ -135,7 +135,7 @@ class LanguageController  extends BaseController {
     
     protected void notFound() {
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'languageInstance.label', default: 'Language'), params.id])
                 redirect action: "index", method: "GET"
             }

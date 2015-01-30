@@ -15,8 +15,8 @@ dataSource {
 hibernate {
     cache.use_second_level_cache = true
     cache.use_query_cache = false
-    cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory' // Hibernate 3
-//    cache.region.factory_class = 'org.hibernate.cache.ehcache.EhCacheRegionFactory' // Hibernate 4
+//    cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory' // Hibernate 3
+    cache.region.factory_class = 'org.hibernate.cache.ehcache.EhCacheRegionFactory' // Hibernate 4
 }
 
 
@@ -26,9 +26,8 @@ environments {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
 //            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-//            url = "jdbc:mysql://localhost:3306/commons?useUnicode=yes&characterEncoding=UTF-8"   
-//            url = "jdbc:mysql://" + "nslookup commons.db control.lan".execute().text.trim().split(/(\n)/).last().split(/(:)/)[1].trim() + ":3306/commons?useUnicode=yes&characterEncoding=UTF-8" 
-            url = "jdbc:mysql://commons.db:3306/commons?useUnicode=yes&characterEncoding=UTF-8" 
+            url = "jdbc:mysql://commons.db:3306/commons?useUnicode=yes&characterEncoding=UTF-8"   
+//            url = "jdbc:mysql://" + "nslookup commons.db bank.pi".execute().text.split(/(\n)/)[4].split(/(:)/)[1].trim() + ":3306/commons?useUnicode=yes&characterEncoding=UTF-8" 
         }
     }
     test {
@@ -42,7 +41,8 @@ environments {
         dataSource {
             dbCreate = "update"
 //            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-            url = "jdbc:mysql://commons.db:3306/commons?useUnicode=yes&characterEncoding=UTF-8"     
+            url = "jdbc:mysql://commons.db:3306/commons?useUnicode=yes&characterEncoding=UTF-8" 
+//            url = "jdbc:mysql://localhost:3306/commons" 
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true

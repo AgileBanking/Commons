@@ -5,9 +5,9 @@ package entities
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(TimezoneController)
-@Mock(Timezone)
-class TimezoneControllerSpec extends Specification {
+@TestFor(HolidayController)
+@Mock(Holiday)
+class HolidayControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -21,8 +21,8 @@ class TimezoneControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.timezoneInstanceList
-            model.timezoneInstanceCount == 0
+            !model.holidayInstanceList
+            model.holidayInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,7 +30,7 @@ class TimezoneControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.timezoneInstance!= null
+            model.holidayInstance!= null
     }
 
     void "Test the save action correctly persists an instance"() {
@@ -38,25 +38,25 @@ class TimezoneControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def timezone = new Timezone()
-            timezone.validate()
-            controller.save(timezone)
+            def holiday = new Holiday()
+            holiday.validate()
+            controller.save(holiday)
 
         then:"The create view is rendered again with the correct model"
-            model.timezoneInstance!= null
+            model.holidayInstance!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            timezone = new Timezone(params)
+            holiday = new Holiday(params)
 
-            controller.save(timezone)
+            controller.save(holiday)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/timezone/show/1'
+            response.redirectedUrl == '/holiday/show/1'
             controller.flash.message != null
-            Timezone.count() == 1
+            Holiday.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -68,11 +68,11 @@ class TimezoneControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def timezone = new Timezone(params)
-            controller.show(timezone)
+            def holiday = new Holiday(params)
+            controller.show(holiday)
 
         then:"A model is populated containing the domain instance"
-            model.timezoneInstance == timezone
+            model.holidayInstance == holiday
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -84,11 +84,11 @@ class TimezoneControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def timezone = new Timezone(params)
-            controller.edit(timezone)
+            def holiday = new Holiday(params)
+            controller.edit(holiday)
 
         then:"A model is populated containing the domain instance"
-            model.timezoneInstance == timezone
+            model.holidayInstance == holiday
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -98,28 +98,28 @@ class TimezoneControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/timezone/index'
+            response.redirectedUrl == '/holiday/index'
             flash.message != null
 
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def timezone = new Timezone()
-            timezone.validate()
-            controller.update(timezone)
+            def holiday = new Holiday()
+            holiday.validate()
+            controller.update(holiday)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.timezoneInstance == timezone
+            model.holidayInstance == holiday
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            timezone = new Timezone(params).save(flush: true)
-            controller.update(timezone)
+            holiday = new Holiday(params).save(flush: true)
+            controller.update(holiday)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/timezone/show/$timezone.id"
+            response.redirectedUrl == "/holiday/show/$holiday.id"
             flash.message != null
     }
 
@@ -130,23 +130,23 @@ class TimezoneControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/timezone/index'
+            response.redirectedUrl == '/holiday/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def timezone = new Timezone(params).save(flush: true)
+            def holiday = new Holiday(params).save(flush: true)
 
         then:"It exists"
-            Timezone.count() == 1
+            Holiday.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(timezone)
+            controller.delete(holiday)
 
         then:"The instance is deleted"
-            Timezone.count() == 0
-            response.redirectedUrl == '/timezone/index'
+            Holiday.count() == 0
+            response.redirectedUrl == '/holiday/index'
             flash.message != null
     }
 }

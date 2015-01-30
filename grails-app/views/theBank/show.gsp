@@ -88,7 +88,7 @@
 			
 				<g:if test="${theBankInstance?.iBAN}">
 				<li class="fieldcontain">
-					<span id="iBAN-label" class="property-label"><g:message code="theBank.iBAN.label" default="IBAN" /></span>
+					<span id="iBAN-label" class="property-label"><g:message code="theBank.iBAN.label" default="I BAN" /></span>
 					
 						<span class="property-value" aria-labelledby="iBAN-label"><g:link controller="iban" action="show" id="${theBankInstance?.iBAN?.id}">${theBankInstance?.iBAN?.encodeAsHTML()}</g:link></span>
 					
@@ -97,7 +97,7 @@
 			
 				<g:if test="${theBankInstance?.hQTimezone}">
 				<li class="fieldcontain">
-					<span id="hQTimezone-label" class="property-label"><g:message code="theBank.hQTimezone.label" default="HQT imezone" /></span>
+					<span id="hQTimezone-label" class="property-label"><g:message code="theBank.hQTimezone.label" default="H QT imezone" /></span>
 					
 						<span class="property-value" aria-labelledby="hQTimezone-label"><g:link controller="timezone" action="show" id="${theBankInstance?.hQTimezone?.id}">${theBankInstance?.hQTimezone?.encodeAsHTML()}</g:link></span>
 					
@@ -174,24 +174,6 @@
 					<span id="lastUpdated-label" class="property-label"><g:message code="theBank.lastUpdated.label" default="Last Updated" /></span>
 					
 						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${theBankInstance?.lastUpdated}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${theBankInstance?.UNIQUE_KEY}">
-				<li class="fieldcontain">
-					<span id="UNIQUE_KEY-label" class="property-label"><g:message code="theBank.UNIQUE_KEY.label" default="UNIQUEKEY" /></span>
-					
-						<span class="property-value" aria-labelledby="UNIQUE_KEY-label"><g:fieldValue bean="${theBankInstance}" field="UNIQUE_KEY"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${theBankInstance?.recStatus}">
-				<li class="fieldcontain">
-					<span id="recStatus-label" class="property-label"><g:message code="theBank.recStatus.label" default="Rec Status" /></span>
-					
-						<span class="property-value" aria-labelledby="recStatus-label"><g:fieldValue bean="${theBankInstance}" field="recStatus"/></span>
 					
 				</li>
 				</g:if>

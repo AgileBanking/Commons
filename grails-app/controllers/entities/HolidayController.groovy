@@ -1,4 +1,3 @@
-
 package entities
 
 import static org.springframework.http.HttpStatus.*
@@ -63,7 +62,7 @@ class HolidayController extends BaseController {
         holidayInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'holidayInstance.label', default: 'Holiday'), holidayInstance.id])
                 redirect holidayInstance
             }
@@ -90,7 +89,7 @@ class HolidayController extends BaseController {
         holidayInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Holiday.label', default: 'Holiday'), holidayInstance.id])
                 redirect holidayInstance
             }
@@ -109,7 +108,7 @@ class HolidayController extends BaseController {
         holidayInstance.update flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Holiday.label', default: 'Holiday'), holidayInstance.id])
                 redirect action:"index", method:"GET"
             }
@@ -128,7 +127,7 @@ class HolidayController extends BaseController {
         holidayInstance.save flush:true
 
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.undeleted.message', args: [message(code: 'Holiday.label', default: 'Holiday'), holidayInstance.id])
                 redirect action:"index", method:"GET"
             }
@@ -138,7 +137,7 @@ class HolidayController extends BaseController {
     
     protected void notFound() {
         request.withFormat {
-            form {
+            form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'holidayInstance.label', default: 'Holiday'), params.id])
                 redirect action: "index", method: "GET"
             }

@@ -77,15 +77,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${orgUnitTypeInstance?.recStatus}">
-				<li class="fieldcontain">
-					<span id="recStatus-label" class="property-label"><g:message code="orgUnitType.recStatus.label" default="Rec Status" /></span>
-					
-						<span class="property-value" aria-labelledby="recStatus-label"><g:fieldValue bean="${orgUnitTypeInstance}" field="recStatus"/></span>
-					
-				</li>
-				</g:if>
-			
 			</ol>
 			<g:form url="[resource:orgUnitTypeInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
