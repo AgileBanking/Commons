@@ -17,7 +17,7 @@
 		<g:layoutHead/>
 	</head>
 	<body>
-		<div id="AgileBankingLogo" role="banner"><a href="http://AgileBanking.com"><asset:image src="AgileBanking114X114.png" alt="AgileBanking"/></a></div>
+		<div id="AgileBankingLogo" role="banner"><a href="http://AgileBanking.com"><asset:image src="AgileBanking114Transparent.png" alt="AgileBanking"/></a></div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
