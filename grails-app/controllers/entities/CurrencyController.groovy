@@ -15,7 +15,6 @@ class CurrencyController extends BaseController {
         update:['POST','PUT'],
         delete:['POST'],
         undelete:['POST'],
-        schema: 'GET',
         getByIso3:'GET',
         shortList:'GET',
         customQuery:'GET'
@@ -177,6 +176,7 @@ class CurrencyController extends BaseController {
          
     def shortList() {
         // example: <server:port>/Commons/currency/shortList
+        println "Entered in shortList"
         def currencyInstance =  Currency.findAll()
         if (currencyInstance==null) {
             request.withFormat {
@@ -191,6 +191,7 @@ class CurrencyController extends BaseController {
                 result[it.iso3] = [ name:"$it.name", nameInt:"$it.nameInt", id:"$it.id", recStatus:"$it.recStatus"]
             }
         }
+        println "result: $result"
         withFormat{       
                 html {render result as JSON}
                 xml  {render  result as XML}
